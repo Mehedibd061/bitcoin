@@ -15,7 +15,11 @@
 #include <vector>
 
 #include <boost/filesystem/path.hpp>
-#include <db_cxx.h>
+#ifdef __NetBSD__
+#	include <db4/db_cxx.h>
+#else
+#	include <db_cxx.h>
+#endif
 
 struct CBlockLocator;
 class CDiskBlockIndex;
